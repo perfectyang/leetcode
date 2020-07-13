@@ -1,0 +1,76 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+  </head>
+  <body>
+    <script src="./20.有效的括号.js" ></script>
+    <script>
+     const testTree = {
+       val: 5,
+       left: {
+         val: 4,
+         left: {
+           val: 11,
+           left: {
+             val: 7,
+             left: null,
+             right: null
+           },
+           right: {
+             val: 2,
+             left: null,
+             right: null
+           }
+         },
+         right: null
+       },
+       right: {
+         val: 8,
+         left: {
+           val: 13,
+           left: null,
+           right: null
+         },
+         right: {
+           val: 4,
+           left: null,
+           right: {
+             val: 1,
+             left: null,
+             right: null
+           }
+         }
+       }
+     }
+
+     var hasPathSum = function(root, sum) {
+      const result = []
+      !(function(node, result, path){
+        path = path ? path + '->' + node.val : node.val
+        if (node.left === null && node.right === null) {
+          result.push(path)
+          return
+        }
+        if (node.left) {
+          arguments.callee(node.left, result, path)
+        }
+        if (node.right) {
+          arguments.callee(node.right, result, path)
+        }
+      })(root, result, "")
+      console.log(result)
+      const bool = result.map(r => r.split('->').reduce((total, next) => {
+        total += Number(next)
+        return total
+      }, 0)).some(cur => cur === sum)
+      console.log(bool)
+    };
+    hasPathSum(testTree, 22)
+
+    </script>
+  </body>
+</html>
