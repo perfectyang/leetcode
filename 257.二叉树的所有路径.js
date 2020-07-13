@@ -23,7 +23,8 @@ var binaryTreePaths = function(root) {
   let arr = [{node:root, path: String(root.val)}]
   let paths = []
   while(arr.length) {
-    let {node, path} = arr.pop()
+    // 此处是一个栈，所以是深度遍历
+    let {node, path} = arr.shift()
     if (!node.left && !node.right) {
       paths.push(path)
     }
