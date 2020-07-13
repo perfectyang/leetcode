@@ -42,10 +42,6 @@ var climbStairs = function(n) {
   // n = 2 a = 2, b = 3 ---> 2
   // n = 3 a = 3, b = 5 ---> 3
 
-
-  
-  
-
 };
 // @lc code=end
 
