@@ -71,6 +71,58 @@
     };
     hasPathSum(testTree, 22)
 
+    var levelOrderBottom = function(root) {
+      if (!root) return []
+      const queue = [root]
+      const result = []
+      while(queue.length) {
+        const num = queue.length
+        const tem = []
+        for (let i = 0; i < num; i++) {
+          const node = queue.shift()
+          tem.push(node.val) 
+          if (node.left) {
+            queue.push(node.left)
+          }
+          if (node.right) {
+            queue.push(node.right)
+          }
+        }
+        result.push(tem)
+      }
+      return result.reverse();
+    };
+    const testTr = {
+      val: 3,
+      left: {
+        val: 9,
+        left: {
+          val: 7,
+          left: null,
+          right: null,
+        },
+        right: {
+          val: 10,
+          left: null,
+          right: null
+        }
+      },
+      right: {
+        val: 20,
+        left: {
+          val: 15,
+          left: null,
+          right: null,
+        },
+        right: {
+          val: 7,
+          left: null,
+          right: null,
+        }
+      }
+    }
+    console.log(levelOrderBottom(testTr))
+
     </script>
   </body>
 </html>
