@@ -38,4 +38,9 @@ var levelOrderBottom = function(root) {
   return result.reverse();
 };
 // @lc code=end
-
+//队列用法  ---> 先进先出 
+// arr.push()
+// arr.shift()
+// // 栈用法 ---> 后进先出
+// arr.push()
+// arr.pop()
