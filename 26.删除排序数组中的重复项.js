@@ -18,8 +18,11 @@ var removeDuplicates = function(nums) {
    }
    q++;
  }
-//  nums.length = p + 1;
-return ++p;
+ nums.length = p + 1;
+// return ++p;
+return nums
 };
+const arr = [1, 3, 4,6, 4, 5, 5,3, 1]
+console.log(removeDuplicates(arr))
 // @lc code=end
 
