@@ -40,8 +40,11 @@
 // };
 var maxDepth = function(root) {
   if (!root) return 0
+  const l = maxDepth(root.left)
+  const r = maxDepth(root.right)
+  return (l > r ? l : r) + 1
   // 这里一直迭加 + 1 + 1 + 1.....
-  return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
+  // return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
 }
 // @lc code=end
 
